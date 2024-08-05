@@ -19,17 +19,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnguardar" min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="btnguardarcliente" min="-2" pref="123" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
-                      <Component id="btnmodificar" min="-2" pref="136" max="-2" attributes="0"/>
+                      <Component id="btnmodificarcliente" min="-2" pref="136" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btneliminar" min="-2" pref="114" max="-2" attributes="0"/>
+                      <Component id="btneliminarcliente" min="-2" pref="114" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -50,11 +50,11 @@
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="334" max="-2" attributes="0"/>
-              <EmptySpace pref="69" max="32767" attributes="0"/>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnguardar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="btnmodificar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="btneliminar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="btnguardarcliente" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="btnmodificarcliente" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="btneliminarcliente" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -66,7 +66,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Datos Productos"/>
+            <TitledBorder title="Datos Cliente"/>
           </Border>
         </Property>
       </Properties>
@@ -78,20 +78,20 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtidproducto" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtidcliente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txtnombreproducto" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtnombrescliente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txtprecioproducto" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtapepaterno" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txtstockproducto" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="254" max="32767" attributes="0"/>
+                  <Component id="txtapmaterno" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="76" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -106,13 +106,13 @@
                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtidproducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtidcliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtnombreproducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtnombrescliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtprecioproducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtapepaterno" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtstockproducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtapmaterno" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="49" max="32767" attributes="0"/>
                   <Component id="btnlimpiarcampos" min="-2" max="-2" attributes="0"/>
@@ -129,26 +129,26 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre:"/>
+            <Property name="text" type="java.lang.String" value="Nombres:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Precio:"/>
+            <Property name="text" type="java.lang.String" value="Apellido Paterno"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Stock:"/>
+            <Property name="text" type="java.lang.String" value="Apellido Materno"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtidproducto">
+        <Component class="javax.swing.JTextField" name="txtidcliente">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtnombreproducto">
+        <Component class="javax.swing.JTextField" name="txtnombrescliente">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtprecioproducto">
+        <Component class="javax.swing.JTextField" name="txtapepaterno">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtstockproducto">
+        <Component class="javax.swing.JTextField" name="txtapmaterno">
         </Component>
         <Component class="javax.swing.JButton" name="btnlimpiarcampos">
           <Properties>
@@ -164,13 +164,10 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tbproductos">
+        <Component class="javax.swing.JTable" name="tbclientes">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="0" rowCount="4"/>
-            </Property>
-            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-              <TableColumnModel selectionModel="0"/>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -179,24 +176,24 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Click para Seleccionar"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnguardar">
+    <Component class="javax.swing.JButton" name="btnguardarcliente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnmodificar">
+    <Component class="javax.swing.JButton" name="btnmodificarcliente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btneliminar">
+    <Component class="javax.swing.JButton" name="btneliminarcliente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Click para Seleccionar"/>
       </Properties>
     </Component>
   </SubComponents>
