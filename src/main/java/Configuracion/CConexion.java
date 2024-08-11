@@ -41,7 +41,7 @@ public class CConexion {
                 JOptionPane.showMessageDialog(null, "La Conexion se ha cerrado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se logro cerrar la conexion"+e.toString());
+            JOptionPane.showMessageDialog(null, "No se logro cerrar la conexion "+e.toString());
         }
     
     }    

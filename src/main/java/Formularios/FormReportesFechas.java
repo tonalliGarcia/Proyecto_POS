@@ -37,6 +37,10 @@ public class FormReportesFechas extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         lbltotal = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Reporte Por Fecha");
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consulta Por Fecha De Ventas"));
 
         jLabel1.setText("Desde:");
@@ -124,7 +128,7 @@ public class FormReportesFechas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbltotal)
                     .addComponent(jLabel3))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();

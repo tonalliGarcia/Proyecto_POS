@@ -11,9 +11,11 @@ package com.mycompany.mipos;
 public class MiPOS {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        Configuracion.CConexion objetoConexion = new Configuracion.CConexion();
-        objetoConexion.estableceConexion();
+        //System.out.println("Hello World!");
+        //Configuracion.CConexion objetoConexion = new Configuracion.CConexion();
+        //objetoConexion.estableceConexion();
+        Formularios.MenuPrincipal objetoMenuPrincipal = new Formularios.MenuPrincipal();
+        objetoMenuPrincipal.setVisible(true);
         
     }
 }

@@ -48,6 +48,10 @@ public class FormBuscarComprobante extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         lbltotal = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Buscar Comprobante");
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingresar Número de Factura"));
 
         btnbuscarfactura.setText("Buscar");
@@ -220,7 +224,7 @@ public class FormBuscarComprobante extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(lbltotal))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
