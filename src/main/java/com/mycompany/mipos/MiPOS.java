@@ -12,5 +12,8 @@ public class MiPOS {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        Configuracion.CConexion objetoConexion = new Configuracion.CConexion();
+        objetoConexion.estableceConexion();
+        
     }
 }
