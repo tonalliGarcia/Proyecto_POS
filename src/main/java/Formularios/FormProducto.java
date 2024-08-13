@@ -15,6 +15,9 @@ public class FormProducto extends javax.swing.JInternalFrame {
      */
     public FormProducto() {
         initComponents();
+        Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
+        objetoProducto.MostrarProductos(tbproductos);
+        txtidproducto.setEnabled(false);
     }
 
     /**
@@ -75,30 +78,35 @@ public class FormProducto extends javax.swing.JInternalFrame {
         jLabel4.setText("Stock:");
 
         btnlimpiarcampos.setText("Limpiar Campos");
+        btnlimpiarcampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlimpiarcamposActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtidproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(txtidproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(txtnombreproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addComponent(txtnombreproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(txtprecioproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addComponent(txtprecioproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(txtstockproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(254, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(txtstockproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(230, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnlimpiarcampos)
                 .addContainerGap())
@@ -132,15 +140,35 @@ public class FormProducto extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbproductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbproductosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbproductos);
 
         jLabel5.setText("Click para Seleccionar");
 
         btnguardar.setText("Guardar");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
 
         btnmodificar.setText("Modificar");
+        btnmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodificarActionPerformed(evt);
+            }
+        });
 
         btneliminar.setText("Eliminar");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Productos"));
 
@@ -308,6 +336,42 @@ public class FormProducto extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        // TODO add your handling code here:
+        Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
+        objetoProducto.AgregarProducto(txtnombreproducto, txtprecioproducto, txtstockproducto);
+        objetoProducto.MostrarProductos(tbproductos);
+        objetoProducto.LimpiarCamposProducto(txtidproducto, txtnombreproducto, txtprecioproducto, txtstockproducto);
+    }//GEN-LAST:event_btnguardarActionPerformed
+
+    private void tbproductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbproductosMouseClicked
+        // TODO add your handling code here:
+        Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
+        objetoProducto.Seleccionar(tbproductos, txtidproducto, txtnombreproducto, txtprecioproducto, txtstockproducto);
+    }//GEN-LAST:event_tbproductosMouseClicked
+
+    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+        // TODO add your handling code here:
+        Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
+        objetoProducto.ModificarProducto(txtidproducto ,txtnombreproducto, txtprecioproducto, txtstockproducto);
+        objetoProducto.MostrarProductos(tbproductos);     
+        objetoProducto.LimpiarCamposProducto(txtidproducto, txtnombreproducto, txtprecioproducto, txtstockproducto);
+    }//GEN-LAST:event_btnmodificarActionPerformed
+
+    private void btnlimpiarcamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarcamposActionPerformed
+        // TODO add your handling code here:
+        Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
+        objetoProducto.LimpiarCamposProducto(txtidproducto, txtnombreproducto, txtprecioproducto, txtstockproducto);
+    }//GEN-LAST:event_btnlimpiarcamposActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        // TODO add your handling code here:
+        Controlador.ControladorProducto objetoProducto = new Controlador.ControladorProducto();
+        objetoProducto.EliminarProductos(txtidproducto);
+        objetoProducto.MostrarProductos(tbproductos);     
+        objetoProducto.LimpiarCamposProducto(txtidproducto, txtnombreproducto, txtprecioproducto, txtstockproducto);        
+    }//GEN-LAST:event_btneliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
