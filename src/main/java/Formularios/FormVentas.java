@@ -4,6 +4,8 @@
  */
 package Formularios;
 
+import Controlador.ControladorVenta;
+
 /**
  *
  * @author 52951
@@ -15,6 +17,20 @@ public class FormVentas extends javax.swing.JInternalFrame {
      */
     public FormVentas() {
         initComponents();
+        txtSidproducto.setEnabled(false);
+        txtSnombreproducto.setEnabled(false);
+        txtSprecio.setEnabled(false);
+        txtSstock.setEnabled(false);
+        txtSprecioVenta.setEnabled(false);
+
+        txtSidcliente.setEnabled(false);
+        txtSnombrecliente.setEnabled(false);
+        txtSappaterno.setEnabled(false);
+        txtSapmaterno.setEnabled(false);
+        
+        Controlador.ControladorVenta objetoVenta = new ControladorVenta();
+        objetoVenta.MostrarUltimaFactura(lblultimafactura);
+
     }
 
     /**
@@ -67,7 +83,7 @@ public class FormVentas extends javax.swing.JInternalFrame {
         btnagregarproducto = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        lblultimafactura = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         btneliminarresumenventa = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -86,6 +102,12 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Buscador");
 
+        txtbuscarcliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtbuscarclienteKeyReleased(evt);
+            }
+        });
+
         tbclientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -97,6 +119,11 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbclientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbclientesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbclientes);
 
         jLabel2.setText("Click Para Seleccionar");
@@ -134,6 +161,12 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Buscador");
 
+        txtbuscarproductos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtbuscarproductosKeyReleased(evt);
+            }
+        });
+
         tbproductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -145,6 +178,11 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbproductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbproductosMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(tbproductos);
 
         jLabel10.setText("Click Para Seleccionar");
@@ -190,6 +228,18 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
         jLabel14.setText("Ap.Materno:");
 
+        txtSapmaterno.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtSapmaterno.setDisabledTextColor(new java.awt.Color(51, 153, 255));
+
+        txtSappaterno.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtSappaterno.setDisabledTextColor(new java.awt.Color(51, 153, 255));
+
+        txtSnombrecliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtSnombrecliente.setDisabledTextColor(new java.awt.Color(51, 153, 255));
+
+        txtSidcliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtSidcliente.setDisabledTextColor(new java.awt.Color(51, 153, 255));
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -232,7 +282,7 @@ public class FormVentas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(txtSapmaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Productos"));
@@ -245,17 +295,47 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
         jLabel18.setText("Stock:");
 
+        txtSidproducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtSidproducto.setDisabledTextColor(new java.awt.Color(51, 153, 255));
+
+        txtSnombreproducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtSnombreproducto.setDisabledTextColor(new java.awt.Color(51, 153, 255));
+
+        txtSprecio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtSprecio.setDisabledTextColor(new java.awt.Color(51, 153, 255));
+
+        txtSstock.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtSstock.setDisabledTextColor(new java.awt.Color(51, 153, 255));
+
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Precio y Cantidad"));
 
         jLabel19.setText("Precio de Venta");
 
+        txtSprecioVenta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtSprecioVenta.setDisabledTextColor(new java.awt.Color(255, 51, 51));
+
         btnhabilitar.setText("Habilitar");
+        btnhabilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhabilitarActionPerformed(evt);
+            }
+        });
 
         btndeshabilitar.setText("Deshabilitar");
+        btndeshabilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeshabilitarActionPerformed(evt);
+            }
+        });
 
         jLabel20.setText("Cantidad de Venta");
 
         btnagregarproducto.setText("Agregar Producto");
+        btnagregarproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregarproductoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -275,7 +355,7 @@ public class FormVentas extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtcantidadventa, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                        .addComponent(txtcantidadventa))
                     .addComponent(btnagregarproducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -301,18 +381,22 @@ public class FormVentas extends javax.swing.JInternalFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel18))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtSstock, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-                    .addComponent(txtSprecio, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-                    .addComponent(txtSnombreproducto)
-                    .addComponent(txtSidproducto))
-                .addGap(29, 29, 29)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtSidproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtSstock)
+                            .addComponent(txtSprecio, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(txtSnombreproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -322,10 +406,10 @@ public class FormVentas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
                             .addComponent(txtSidproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
                             .addComponent(txtSnombreproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -340,7 +424,7 @@ public class FormVentas extends javax.swing.JInternalFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -365,20 +449,22 @@ public class FormVentas extends javax.swing.JInternalFrame {
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel21.setText("Ultima Factura Creada");
 
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel22.setText("----");
+        lblultimafactura.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblultimafactura.setForeground(new java.awt.Color(255, 0, 51));
+        lblultimafactura.setText("----");
 
         jLabel23.setText("Seleccionar Para Eliminar");
 
         btneliminarresumenventa.setText("Eliminar");
+        btneliminarresumenventa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarresumenventaActionPerformed(evt);
+            }
+        });
 
         tbresumenventa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "IdProducto", "N.Producto", "PrecioProd.", "Canti.Prod.", "SubTotal"
@@ -399,6 +485,11 @@ public class FormVentas extends javax.swing.JInternalFrame {
         lbltotal.setText("----");
 
         btncobrar.setText("Cobrar");
+        btncobrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncobrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -408,12 +499,12 @@ public class FormVentas extends javax.swing.JInternalFrame {
                 .addGap(43, 43, 43)
                 .addComponent(jLabel21)
                 .addGap(69, 69, 69)
-                .addComponent(jLabel22)
+                .addComponent(lblultimafactura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel23)
-                .addGap(50, 50, 50)
+                .addGap(44, 44, 44)
                 .addComponent(btneliminarresumenventa)
-                .addGap(117, 117, 117))
+                .addGap(82, 82, 82))
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane6)
@@ -435,12 +526,17 @@ public class FormVentas extends javax.swing.JInternalFrame {
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel23)
-                    .addComponent(btneliminarresumenventa))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel21)
+                            .addComponent(lblultimafactura)))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btneliminarresumenventa)
+                            .addComponent(jLabel23))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -492,6 +588,64 @@ public class FormVentas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtbuscarproductosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarproductosKeyReleased
+        // TODO add your handling code here:
+        Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+        objetoVenta.BuscarProducto(txtbuscarproductos, tbproductos);
+    }//GEN-LAST:event_txtbuscarproductosKeyReleased
+
+    private void tbproductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbproductosMouseClicked
+        // TODO add your handling code here:
+        Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+        objetoVenta.SeleccionarProductoVenta(tbproductos, txtSidproducto, txtSnombreproducto, txtSprecio, txtSstock, txtSprecioVenta);
+    }//GEN-LAST:event_tbproductosMouseClicked
+
+    private void txtbuscarclienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarclienteKeyReleased
+        // TODO add your handling code here:
+        Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+        objetoVenta.BuscarCliente(txtbuscarcliente, tbclientes);
+    }//GEN-LAST:event_txtbuscarclienteKeyReleased
+
+    private void tbclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbclientesMouseClicked
+        // TODO add your handling code here:
+        Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+        objetoVenta.SeleccionarClienteVenta(tbclientes, txtSidcliente, txtSnombrecliente, txtSappaterno, txtSapmaterno);
+    }//GEN-LAST:event_tbclientesMouseClicked
+
+    private void btnagregarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarproductoActionPerformed
+        // TODO add your handling code here:
+        Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+        objetoVenta.pasarProductosVenta(tbresumenventa, txtSidproducto, txtSnombreproducto, txtSprecioVenta, txtcantidadventa, txtSstock);
+        objetoVenta.calcularTotalPagar(tbresumenventa, lbliva, lbltotal);
+
+    }//GEN-LAST:event_btnagregarproductoActionPerformed
+
+    private void btneliminarresumenventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarresumenventaActionPerformed
+        // TODO add your handling code here:
+        Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+        objetoVenta.eliminarProductosSeleccionadosResumenVenta(tbresumenventa);
+        objetoVenta.calcularTotalPagar(tbresumenventa, lbliva, lbltotal);
+    }//GEN-LAST:event_btneliminarresumenventaActionPerformed
+
+    private void btncobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncobrarActionPerformed
+        // TODO add your handling code here:
+        Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+        objetoVenta.crearFactura(txtSidcliente);
+        objetoVenta.realizarVenta(tbresumenventa);
+        objetoVenta.limpiarCamposLuegoVenta(txtbuscarcliente, tbclientes, txtbuscarproductos, tbproductos, txtSidcliente, txtSnombrecliente, txtSappaterno, txtSapmaterno, txtSidproducto, txtSnombreproducto, txtSprecio, txtSstock, txtSprecioVenta, txtcantidadventa, tbresumenventa, lbliva, lbltotal);
+        objetoVenta.MostrarUltimaFactura(lblultimafactura);
+    }//GEN-LAST:event_btncobrarActionPerformed
+
+    private void btnhabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhabilitarActionPerformed
+        // TODO add your handling code here:
+        txtSprecioVenta.setEnabled(true);
+    }//GEN-LAST:event_btnhabilitarActionPerformed
+
+    private void btndeshabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeshabilitarActionPerformed
+        // TODO add your handling code here:
+        txtSprecioVenta.setEnabled(false);
+    }//GEN-LAST:event_btndeshabilitarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnagregarproducto;
@@ -513,7 +667,6 @@ public class FormVentas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel26;
@@ -530,6 +683,7 @@ public class FormVentas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel lbliva;
     private javax.swing.JLabel lbltotal;
+    private javax.swing.JLabel lblultimafactura;
     private javax.swing.JTable tbclientes;
     private javax.swing.JTable tbproductos;
     private javax.swing.JTable tbresumenventa;
