@@ -4,6 +4,8 @@
  */
 package Formularios;
 
+import Controlador.ControladorReportes;
+
 /**
  *
  * @author 52951
@@ -55,6 +57,11 @@ public class FormBuscarComprobante extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingresar Número de Factura"));
 
         btnbuscarfactura.setText("Buscar");
+        btnbuscarfactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarfacturaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -229,6 +236,13 @@ public class FormBuscarComprobante extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnbuscarfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarfacturaActionPerformed
+        // TODO add your handling code here:
+        Controlador.ControladorReportes objetoReportes = new ControladorReportes();
+        objetoReportes.BuscarFacturaMostrarDatosCliente(txtnumerofactura, lblfactura, lblfechafactura, lblnombrecliente, lblappaterno, lblapmaterno);
+        objetoReportes.BuscarFacturaMostrarDatosProductos(txtnumerofactura, tbproductos, lbliva, lbltotal);
+    }//GEN-LAST:event_btnbuscarfacturaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
