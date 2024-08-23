@@ -54,6 +54,11 @@ public class ControladorCliente {
             objetoConexion.cerrarConecion();
         }
         
+        //bloquear elementos de la tabla clientes
+        for (int column = 0; column < tablaTotalClientes.getColumnCount(); column++) {
+            Class<?> columClass = tablaTotalClientes.getColumnClass(column);
+            tablaTotalClientes.setDefaultEditor(columClass, null);
+        }      
         
     }    
     

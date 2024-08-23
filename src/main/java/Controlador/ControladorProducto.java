@@ -51,6 +51,11 @@ public class ControladorProducto {
         } finally {
             objetoConexion.cerrarConecion();
         }
+        //bloquear elementos de la tabla productos
+        for (int column = 0; column < tablaTotalProductos.getColumnCount(); column++) {
+            Class<?> columClass = tablaTotalProductos.getColumnClass(column);
+            tablaTotalProductos.setDefaultEditor(columClass, null);
+        }
     }
     
     //Metodo agregar producto

@@ -142,8 +142,6 @@ public class ControladorReportes {
         for (int column = 0; column < tablaVentas.getColumnCount(); column++) {
             Class<?> columClass = tablaVentas.getColumnClass(column);
             tablaVentas.setDefaultEditor(columClass, null);
-            
-            
         }
     
     }

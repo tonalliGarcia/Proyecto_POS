@@ -42,7 +42,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setText("Mi Punto De Venta En Equinoxxio");
+        jLabel2.setText("Mi Punto De Venta \"Las Orquideas\"");
 
         dpformularios.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -51,16 +51,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         dpformulariosLayout.setHorizontalGroup(
             dpformulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dpformulariosLayout.createSequentialGroup()
-                .addGap(293, 293, 293)
+                .addGap(363, 363, 363)
                 .addComponent(jLabel2)
-                .addContainerGap(364, Short.MAX_VALUE))
+                .addContainerGap(346, Short.MAX_VALUE))
         );
         dpformulariosLayout.setVerticalGroup(
             dpformulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dpformulariosLayout.createSequentialGroup()
-                .addGap(498, 498, 498)
+                .addGap(456, 456, 456)
                 .addComponent(jLabel2)
-                .addContainerGap(562, Short.MAX_VALUE))
+                .addContainerGap(667, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Vender");
@@ -125,11 +125,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dpformularios)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(dpformularios)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dpformularios)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(dpformularios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
