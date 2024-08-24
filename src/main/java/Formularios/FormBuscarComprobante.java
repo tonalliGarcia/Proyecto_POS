@@ -242,6 +242,12 @@ public class FormBuscarComprobante extends javax.swing.JInternalFrame {
         Controlador.ControladorReportes objetoReportes = new ControladorReportes();
         objetoReportes.BuscarFacturaMostrarDatosCliente(txtnumerofactura, lblfactura, lblfechafactura, lblnombrecliente, lblappaterno, lblapmaterno);
         objetoReportes.BuscarFacturaMostrarDatosProductos(txtnumerofactura, tbproductos, lbliva, lbltotal);
+        
+        //bloquear elementos de la tabla clientes
+        for (int column = 0; column < tbproductos.getColumnCount(); column++) {
+            Class<?> columClass = tbproductos.getColumnClass(column);
+            tbproductos.setDefaultEditor(columClass, null);
+        } 
     }//GEN-LAST:event_btnbuscarfacturaActionPerformed
 
 
