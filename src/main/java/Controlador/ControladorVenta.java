@@ -232,7 +232,27 @@ public class ControladorVenta {
             objetoConexion.cerrarConecion();
         }    
     }
-    
+    //tbclientes, tbproductos, tbresumenventa, lbliva, lbltotal
+    public void limpiarCamposLuegoAgregar(JTextField buscarCliente, JTextField buscarProducto, JTextField selectIdCliente, 
+                                          JTextField selectNombreCliente, JTextField selectAppaternoCliente,
+                                          JTextField selectApmaternoCliente, JTextField selectIdProducto, JTextField selectNombreProducto,
+                                          JTextField selectPrecioProducto, JTextField selectStockProducto, JTextField precioVenta,
+                                          JTextField cantidadVenta){
+        buscarCliente.setText("");
+        buscarCliente.requestFocus();        
+        buscarProducto.setText("");        
+        selectIdCliente.setText("");
+        selectNombreCliente.setText("");
+        selectAppaternoCliente.setText("");
+        selectApmaternoCliente.setText("");        
+        selectIdProducto.setText("");
+        selectNombreProducto.setText("");
+        selectPrecioProducto.setText("");
+        selectStockProducto.setText("");        
+        precioVenta.setText("");
+        precioVenta.setEnabled(false);
+        cantidadVenta.setText("");        
+    }    
     public void limpiarCamposLuegoVenta(JTextField buscarCliente, JTable tablaCliente, JTextField buscarProducto, JTable tablaproducto,
                                         JTextField selectIdCliente, JTextField selectNombreCliente, JTextField selectAppaternoCliente,
                                         JTextField selectApmaternoCliente, JTextField selectIdProducto, JTextField selectNombreProducto,
