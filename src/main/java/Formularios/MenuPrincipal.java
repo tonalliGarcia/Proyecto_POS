@@ -51,16 +51,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         dpformulariosLayout.setHorizontalGroup(
             dpformulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dpformulariosLayout.createSequentialGroup()
-                .addGap(363, 363, 363)
+                .addGap(330, 330, 330)
                 .addComponent(jLabel2)
-                .addContainerGap(346, Short.MAX_VALUE))
+                .addContainerGap(379, Short.MAX_VALUE))
         );
         dpformulariosLayout.setVerticalGroup(
             dpformulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dpformulariosLayout.createSequentialGroup()
-                .addGap(456, 456, 456)
+                .addGap(504, 504, 504)
                 .addComponent(jLabel2)
-                .addContainerGap(667, Short.MAX_VALUE))
+                .addContainerGap(619, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Vender");

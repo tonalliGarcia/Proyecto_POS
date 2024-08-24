@@ -330,6 +330,12 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
         jLabel20.setText("Cantidad de Venta");
 
+        txtcantidadventa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcantidadventaKeyTyped(evt);
+            }
+        });
+
         btnagregarproducto.setText("Agregar Producto");
         btnagregarproducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -617,6 +623,7 @@ public class FormVentas extends javax.swing.JInternalFrame {
         Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
         objetoVenta.pasarProductosVenta(tbresumenventa, txtSidproducto, txtSnombreproducto, txtSprecioVenta, txtcantidadventa, txtSstock);
         objetoVenta.calcularTotalPagar(tbresumenventa, lbliva, lbltotal);
+        
 
     }//GEN-LAST:event_btnagregarproductoActionPerformed
 
@@ -645,6 +652,15 @@ public class FormVentas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         txtSprecioVenta.setEnabled(false);
     }//GEN-LAST:event_btndeshabilitarActionPerformed
+
+    private void txtcantidadventaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadventaKeyTyped
+        int key = evt.getKeyChar();
+        
+        boolean numeros =( (key>=49) &&( key<=57) );
+        if(!numeros){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtcantidadventaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
