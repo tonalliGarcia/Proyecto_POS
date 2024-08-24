@@ -623,6 +623,11 @@ public class FormVentas extends javax.swing.JInternalFrame {
         Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
         objetoVenta.pasarProductosVenta(tbresumenventa, txtSidproducto, txtSnombreproducto, txtSprecioVenta, txtcantidadventa, txtSstock);
         objetoVenta.calcularTotalPagar(tbresumenventa, lbliva, lbltotal);
+        //bloquear elementos de la tabla resumen venta
+        for (int column = 0; column < tbresumenventa.getColumnCount(); column++) {
+            Class<?> columClass = tbresumenventa.getColumnClass(column);
+            tbresumenventa.setDefaultEditor(columClass, null);
+        }  
         
 
     }//GEN-LAST:event_btnagregarproductoActionPerformed
