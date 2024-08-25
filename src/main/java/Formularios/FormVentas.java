@@ -5,6 +5,7 @@
 package Formularios;
 
 import Controlador.ControladorVenta;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,7 +28,7 @@ public class FormVentas extends javax.swing.JInternalFrame {
         txtSnombrecliente.setEnabled(false);
         txtSappaterno.setEnabled(false);
         txtSapmaterno.setEnabled(false);
-        
+
         Controlador.ControladorVenta objetoVenta = new ControladorVenta();
         objetoVenta.MostrarUltimaFactura(lblultimafactura);
 
@@ -620,17 +621,19 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
     private void btnagregarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarproductoActionPerformed
         // TODO add your handling code here:
-        Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
-        objetoVenta.pasarProductosVenta(tbresumenventa, txtSidproducto, txtSnombreproducto, txtSprecioVenta, txtcantidadventa, txtSstock);
-        objetoVenta.calcularTotalPagar(tbresumenventa, lbliva, lbltotal);
-        objetoVenta.limpiarCamposLuegoAgregar(txtbuscarcliente, txtbuscarproductos, txtSidcliente, txtSnombrecliente, txtSappaterno, txtSapmaterno, txtSidproducto, txtSnombreproducto, txtSprecio, txtSstock, txtSprecioVenta, txtcantidadventa);
-        //bloquear elementos de la tabla resumen venta
-        for (int column = 0; column < tbresumenventa.getColumnCount(); column++) {
-            Class<?> columClass = tbresumenventa.getColumnClass(column);
-            tbresumenventa.setDefaultEditor(columClass, null);
-        }  
-        
-
+        if (txtcantidadventa.getText().trim().isEmpty() || txtSidproducto.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, Introduzca un Cliente O una cantidad de venta válida");
+        } else {
+            Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+            objetoVenta.pasarProductosVenta(tbresumenventa, txtSidproducto, txtSnombreproducto, txtSprecioVenta, txtcantidadventa, txtSstock);
+            objetoVenta.calcularTotalPagar(tbresumenventa, lbliva, lbltotal);
+            objetoVenta.limpiarCamposLuegoAgregar(txtbuscarcliente, txtbuscarproductos, txtSidproducto, txtSnombreproducto, txtSprecio, txtSstock, txtSprecioVenta, txtcantidadventa);      
+            //bloquear elementos de la tabla resumen venta
+            for (int column = 0; column < tbresumenventa.getColumnCount(); column++) {
+                Class<?> columClass = tbresumenventa.getColumnClass(column);
+                tbresumenventa.setDefaultEditor(columClass, null);
+            }
+        }
     }//GEN-LAST:event_btnagregarproductoActionPerformed
 
     private void btneliminarresumenventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarresumenventaActionPerformed
@@ -643,10 +646,14 @@ public class FormVentas extends javax.swing.JInternalFrame {
     private void btncobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncobrarActionPerformed
         // TODO add your handling code here:
         Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
-        objetoVenta.crearFactura(txtSidcliente);
-        objetoVenta.realizarVenta(tbresumenventa);
-        objetoVenta.limpiarCamposLuegoVenta(txtbuscarcliente, tbclientes, txtbuscarproductos, tbproductos, txtSidcliente, txtSnombrecliente, txtSappaterno, txtSapmaterno, txtSidproducto, txtSnombreproducto, txtSprecio, txtSstock, txtSprecioVenta, txtcantidadventa, tbresumenventa, lbliva, lbltotal);
-        objetoVenta.MostrarUltimaFactura(lblultimafactura);
+        if (txtcantidadventa.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, Introduzca una cantidad de venta válida");
+        } else {
+            objetoVenta.crearFactura(txtSidcliente);
+            objetoVenta.realizarVenta(tbresumenventa);
+            objetoVenta.limpiarCamposLuegoVenta(txtbuscarcliente, tbclientes, txtbuscarproductos, tbproductos, txtSidcliente, txtSnombrecliente, txtSappaterno, txtSapmaterno, txtSidproducto, txtSnombreproducto, txtSprecio, txtSstock, txtSprecioVenta, txtcantidadventa, tbresumenventa, lbliva, lbltotal);
+            objetoVenta.MostrarUltimaFactura(lblultimafactura);
+        }
     }//GEN-LAST:event_btncobrarActionPerformed
 
     private void btnhabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhabilitarActionPerformed
@@ -661,9 +668,9 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
     private void txtcantidadventaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadventaKeyTyped
         int key = evt.getKeyChar();
-        
-        boolean numeros =( (key>=49) &&( key<=57) );
-        if(!numeros){
+
+        boolean numeros = ((key >= 49) && (key <= 57));
+        if (!numeros) {
             evt.consume();
         }
     }//GEN-LAST:event_txtcantidadventaKeyTyped

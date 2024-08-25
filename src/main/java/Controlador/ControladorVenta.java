@@ -143,7 +143,7 @@ public class ControladorVenta {
         }
         String nProducto = nombreProducto.getText();
         double precioUnitario = Double.parseDouble(precioProducto.getText());
-        int cantidad = Integer.parseInt(cantidadVenta.getText());
+        int cantidad = Integer.parseInt(cantidadVenta.getText());        
         if (cantidad > stockDisponible) {
             JOptionPane.showMessageDialog(null, "Cantidad mayor al stock disponible");
             return;
@@ -232,19 +232,18 @@ public class ControladorVenta {
             objetoConexion.cerrarConecion();
         }    
     }
-    //tbclientes, tbproductos, tbresumenventa, lbliva, lbltotal
-    public void limpiarCamposLuegoAgregar(JTextField buscarCliente, JTextField buscarProducto, JTextField selectIdCliente, 
-                                          JTextField selectNombreCliente, JTextField selectAppaternoCliente,
-                                          JTextField selectApmaternoCliente, JTextField selectIdProducto, JTextField selectNombreProducto,
-                                          JTextField selectPrecioProducto, JTextField selectStockProducto, JTextField precioVenta,
+
+    public void limpiarCamposLuegoAgregar(JTextField buscarCliente, JTextField buscarProducto, JTextField selectIdProducto, 
+                                          JTextField selectNombreProducto, JTextField selectPrecioProducto,
+                                          JTextField selectStockProducto, JTextField precioVenta,
                                           JTextField cantidadVenta){
         buscarCliente.setText("");
         buscarCliente.requestFocus();        
         buscarProducto.setText("");        
-        selectIdCliente.setText("");
-        selectNombreCliente.setText("");
-        selectAppaternoCliente.setText("");
-        selectApmaternoCliente.setText("");        
+        //selectIdCliente.setText("");
+        //selectNombreCliente.setText("");
+        //selectAppaternoCliente.setText("");
+        //selectApmaternoCliente.setText("");        
         selectIdProducto.setText("");
         selectNombreProducto.setText("");
         selectPrecioProducto.setText("");
