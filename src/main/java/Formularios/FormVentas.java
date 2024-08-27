@@ -477,6 +477,8 @@ public class FormVentas extends javax.swing.JInternalFrame {
                 "IdProducto", "N.Producto", "PrecioProd.", "Canti.Prod.", "SubTotal"
             }
         ));
+        tbresumenventa.getTableHeader().setResizingAllowed(false);
+        tbresumenventa.getTableHeader().setReorderingAllowed(false);
         jScrollPane6.setViewportView(tbresumenventa);
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -627,7 +629,7 @@ public class FormVentas extends javax.swing.JInternalFrame {
             Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
             objetoVenta.pasarProductosVenta(tbresumenventa, txtSidproducto, txtSnombreproducto, txtSprecioVenta, txtcantidadventa, txtSstock);
             objetoVenta.calcularTotalPagar(tbresumenventa, lbliva, lbltotal);
-            objetoVenta.limpiarCamposLuegoAgregar(txtbuscarcliente, txtbuscarproductos, txtSidproducto, txtSnombreproducto, txtSprecio, txtSstock, txtSprecioVenta, txtcantidadventa);      
+            objetoVenta.limpiarCamposLuegoAgregar(txtbuscarcliente, txtbuscarproductos, txtSidproducto, txtSnombreproducto, txtSprecio, txtSstock, txtSprecioVenta, txtcantidadventa);
             //bloquear elementos de la tabla resumen venta
             for (int column = 0; column < tbresumenventa.getColumnCount(); column++) {
                 Class<?> columClass = tbresumenventa.getColumnClass(column);
@@ -645,10 +647,11 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
     private void btncobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncobrarActionPerformed
         // TODO add your handling code here:
-        Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
-        if (txtcantidadventa.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor, Introduzca una cantidad de venta válida");
+        if (lbltotal.getText().equals("----") ){
+            JOptionPane.showMessageDialog(null, "Ingrese algun articulo");
+
         } else {
+            Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
             objetoVenta.crearFactura(txtSidcliente);
             objetoVenta.realizarVenta(tbresumenventa);
             objetoVenta.limpiarCamposLuegoVenta(txtbuscarcliente, tbclientes, txtbuscarproductos, tbproductos, txtSidcliente, txtSnombrecliente, txtSappaterno, txtSapmaterno, txtSidproducto, txtSnombreproducto, txtSprecio, txtSstock, txtSprecioVenta, txtcantidadventa, tbresumenventa, lbliva, lbltotal);

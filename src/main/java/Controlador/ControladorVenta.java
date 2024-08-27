@@ -189,7 +189,6 @@ public class ControladorVenta {
         String consulta = "INSERT INTO factura (fechaFactura,fkcliente) values (curdate(),?);";
         try {
             objetoCliente.setIdCliente(Integer.parseInt(codCliente.getText()));
-            //CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
             cs.setInt(1, objetoCliente.getIdCliente());
             cs.execute();
@@ -239,11 +238,7 @@ public class ControladorVenta {
                                           JTextField cantidadVenta){
         buscarCliente.setText("");
         buscarCliente.requestFocus();        
-        buscarProducto.setText("");        
-        //selectIdCliente.setText("");
-        //selectNombreCliente.setText("");
-        //selectAppaternoCliente.setText("");
-        //selectApmaternoCliente.setText("");        
+        buscarProducto.setText("");       
         selectIdProducto.setText("");
         selectNombreProducto.setText("");
         selectPrecioProducto.setText("");
