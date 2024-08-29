@@ -314,6 +314,11 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
         txtSprecioVenta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         txtSprecioVenta.setDisabledTextColor(new java.awt.Color(255, 51, 51));
+        txtSprecioVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSprecioVentaKeyTyped(evt);
+            }
+        });
 
         btnhabilitar.setText("Habilitar");
         btnhabilitar.addActionListener(new java.awt.event.ActionListener() {
@@ -622,18 +627,23 @@ public class FormVentas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tbclientesMouseClicked
 
     private void btnagregarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarproductoActionPerformed
-        // TODO add your handling code here:
-        if (txtcantidadventa.getText().trim().isEmpty() || txtSidproducto.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor, Introduzca un Cliente O una cantidad de venta válida");
+        // TODO add your handling code here:        
+        if (txtSidproducto.getText().trim().isEmpty() || txtSidcliente.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, Introduzca un Cliente o Producto");
         } else {
-            Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
-            objetoVenta.pasarProductosVenta(tbresumenventa, txtSidproducto, txtSnombreproducto, txtSprecioVenta, txtcantidadventa, txtSstock);
-            objetoVenta.calcularTotalPagar(tbresumenventa, lbliva, lbltotal);
-            objetoVenta.limpiarCamposLuegoAgregar(txtbuscarcliente, txtbuscarproductos, txtSidproducto, txtSnombreproducto, txtSprecio, txtSstock, txtSprecioVenta, txtcantidadventa);
-            //bloquear elementos de la tabla resumen venta
-            for (int column = 0; column < tbresumenventa.getColumnCount(); column++) {
-                Class<?> columClass = tbresumenventa.getColumnClass(column);
-                tbresumenventa.setDefaultEditor(columClass, null);
+            double cantidadVenta = Double.parseDouble(txtSprecioVenta.getText());
+            if (txtcantidadventa.getText().trim().isEmpty() || cantidadVenta <= 0) {
+                JOptionPane.showMessageDialog(null, "Por favor, verifique el precio y cantidad de venta");
+            } else {
+                Controlador.ControladorVenta objetoVenta = new Controlador.ControladorVenta();
+                objetoVenta.pasarProductosVenta(tbresumenventa, txtSidproducto, txtSnombreproducto, txtSprecioVenta, txtcantidadventa, txtSstock);
+                objetoVenta.calcularTotalPagar(tbresumenventa, lbliva, lbltotal);
+                objetoVenta.limpiarCamposLuegoAgregar(txtbuscarcliente, txtbuscarproductos, txtSidproducto, txtSnombreproducto, txtSprecio, txtSstock, txtSprecioVenta, txtcantidadventa);
+                //bloquear elementos de la tabla resumen venta
+                for (int column = 0; column < tbresumenventa.getColumnCount(); column++) {
+                    Class<?> columClass = tbresumenventa.getColumnClass(column);
+                    tbresumenventa.setDefaultEditor(columClass, null);
+                }
             }
         }
     }//GEN-LAST:event_btnagregarproductoActionPerformed
@@ -647,7 +657,7 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
     private void btncobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncobrarActionPerformed
         // TODO add your handling code here:
-        if (lbltotal.getText().equals("----") ){
+        if (lbltotal.getText().equals("----")) {
             JOptionPane.showMessageDialog(null, "Ingrese algun articulo");
 
         } else {
@@ -671,12 +681,22 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
     private void txtcantidadventaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadventaKeyTyped
         int key = evt.getKeyChar();
+        boolean numeros = (key >= 49 && key <= 57); // Números del 1 al 9
 
-        boolean numeros = ((key >= 49) && (key <= 57));
+        // Verificar si hay caracteres fuera del rango en el campo de texto
+        if (!numeros) {
+            evt.consume(); // Si no es número ni punto, se consume el evento
+        }
+    }//GEN-LAST:event_txtcantidadventaKeyTyped
+
+    private void txtSprecioVentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSprecioVentaKeyTyped
+        // TODO add your handling code here:
+        int key = evt.getKeyChar();
+        boolean numeros = ((key >= 48) && (key <= 57));
         if (!numeros) {
             evt.consume();
         }
-    }//GEN-LAST:event_txtcantidadventaKeyTyped
+    }//GEN-LAST:event_txtSprecioVentaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
