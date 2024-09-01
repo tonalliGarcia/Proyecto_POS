@@ -120,6 +120,7 @@ public class FormVentas extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbclientes.setFocusable(false);
         tbclientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbclientesMouseClicked(evt);

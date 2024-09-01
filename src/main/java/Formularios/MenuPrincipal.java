@@ -4,6 +4,11 @@
  */
 package Formularios;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author 52951
@@ -13,9 +18,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form MenuPrincipal
      */
+    private ImageIcon imagen;
+    private Icon icono;
     public MenuPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.pintarImagen(this.imgBackground, "src/main/java/Imagenes/backgroung2.jpg");
     }
 
     /**
@@ -28,7 +36,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         dpformularios = new javax.swing.JDesktopPane();
-        jLabel2 = new javax.swing.JLabel();
+        imgBackground = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -41,26 +49,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setText("Mi Punto De Venta \"Las Orquideas\"");
+        dpformularios.setBackground(new java.awt.Color(51, 51, 51));
+        dpformularios.setPreferredSize(new java.awt.Dimension(1332, 1280));
 
-        dpformularios.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpformularios.setLayer(imgBackground, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout dpformulariosLayout = new javax.swing.GroupLayout(dpformularios);
         dpformularios.setLayout(dpformulariosLayout);
         dpformulariosLayout.setHorizontalGroup(
             dpformulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dpformulariosLayout.createSequentialGroup()
-                .addGap(330, 330, 330)
-                .addComponent(jLabel2)
-                .addContainerGap(379, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(imgBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 1248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         dpformulariosLayout.setVerticalGroup(
             dpformulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dpformulariosLayout.createSequentialGroup()
-                .addGap(504, 504, 504)
-                .addComponent(jLabel2)
-                .addContainerGap(634, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dpformulariosLayout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(imgBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 1212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
 
         jMenu1.setText("Vender");
@@ -126,15 +134,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(dpformularios)
-                .addContainerGap())
+                .addComponent(dpformularios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(dpformularios))
+                .addComponent(dpformularios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -214,10 +221,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    private void pintarImagen(JLabel lbl, String ruta){
+        this.imagen = new ImageIcon(ruta);
+        this.icono = new ImageIcon(this.imagen.getImage().getScaledInstance(lbl.getWidth(), lbl.getHeight(), Image.SCALE_DEFAULT));
+        lbl.setIcon(this.icono);
+        this.repaint();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dpformularios;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel imgBackground;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

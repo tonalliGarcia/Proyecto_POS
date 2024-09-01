@@ -143,7 +143,7 @@ public class ControladorVenta {
         }
         String nProducto = nombreProducto.getText();
         double precioUnitario = Double.parseDouble(precioProducto.getText());
-        int cantidad = Integer.parseInt(cantidadVenta.getText());        
+        int cantidad = Integer.parseInt(cantidadVenta.getText());
         if (cantidad > stockDisponible) {
             JOptionPane.showMessageDialog(null, "Cantidad mayor al stock disponible");
             return;
@@ -182,8 +182,8 @@ public class ControladorVenta {
         totalPagar.setText(String.valueOf(totalSubtotal));
         IVA.setText(String.valueOf(totaliva));
     }
-    
-    public void crearFactura(JTextField codCliente){
+
+    public void crearFactura(JTextField codCliente) {
         Configuracion.CConexion objetoConexion = new Configuracion.CConexion();
         Modelos.ModeloCliente objetoCliente = new Modelos.ModeloCliente();
         String consulta = "INSERT INTO factura (fechaFactura,fkcliente) values (curdate(),?);";
@@ -192,16 +192,16 @@ public class ControladorVenta {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
             cs.setInt(1, objetoCliente.getIdCliente());
             cs.execute();
-            JOptionPane.showMessageDialog(null,"Factura creada");
-            
+            JOptionPane.showMessageDialog(null, "Factura creada");
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Erro al crear factura: "+e.toString());
+            JOptionPane.showMessageDialog(null, "Erro al crear factura: " + e.toString());
         } finally {
             objetoConexion.cerrarConecion();
         }
     }
-    
-    public void realizarVenta(JTable tablaResumenVenta){
+
+    public void realizarVenta(JTable tablaResumenVenta) {
         Configuracion.CConexion objetoConexion = new Configuracion.CConexion();
         String consultaDetalle = "INSERT INTO detalle (fkfactura,fkproducto,cantidad,precioVenta) values ((SELECT MAX(idfactura)FROM factura),?,?,?);";
         String consultaStock = "UPDATE producto SET producto.stock = stock - ? WHERE idproducto = ?;";
@@ -210,79 +210,79 @@ public class ControladorVenta {
             PreparedStatement psStock = objetoConexion.estableceConexion().prepareStatement(consultaStock);
             int filas = tablaResumenVenta.getRowCount();
             for (int i = 0; i < filas; i++) {
-                
+
                 int idProducto = Integer.parseInt(tablaResumenVenta.getValueAt(i, 0).toString());
                 int cantidad = Integer.parseInt(tablaResumenVenta.getValueAt(i, 3).toString());
                 double precioVenta = Double.parseDouble(tablaResumenVenta.getValueAt(i, 2).toString());
-                
-                psDetalle.setInt(1,idProducto);
-                psDetalle.setInt(2,cantidad);
-                psDetalle.setDouble(3,precioVenta);                
+
+                psDetalle.setInt(1, idProducto);
+                psDetalle.setInt(2, cantidad);
+                psDetalle.setDouble(3, precioVenta);
                 psDetalle.executeUpdate();
-                
-                psStock.setInt(1,cantidad);
-                psStock.setInt(2,idProducto);
-                psStock.executeUpdate();                
+
+                psStock.setInt(1, cantidad);
+                psStock.setInt(2, idProducto);
+                psStock.executeUpdate();
             }
-            JOptionPane.showMessageDialog(null,"Venta Realizada");
+            JOptionPane.showMessageDialog(null, "Venta Realizada");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error al vender: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al vender: " + e.toString());
         } finally {
             objetoConexion.cerrarConecion();
-        }    
+        }
     }
 
-    public void limpiarCamposLuegoAgregar(JTextField buscarCliente, JTextField buscarProducto, JTextField selectIdProducto, 
-                                          JTextField selectNombreProducto, JTextField selectPrecioProducto,
-                                          JTextField selectStockProducto, JTextField precioVenta,
-                                          JTextField cantidadVenta){
-        buscarCliente.setText("");
-        buscarCliente.requestFocus();        
-        buscarProducto.setText("");       
-        selectIdProducto.setText("");
-        selectNombreProducto.setText("");
-        selectPrecioProducto.setText("");
-        selectStockProducto.setText("");        
-        precioVenta.setText("");
-        precioVenta.setEnabled(false);
-        cantidadVenta.setText("");        
-    }    
-    public void limpiarCamposLuegoVenta(JTextField buscarCliente, JTable tablaCliente, JTextField buscarProducto, JTable tablaproducto,
-                                        JTextField selectIdCliente, JTextField selectNombreCliente, JTextField selectAppaternoCliente,
-                                        JTextField selectApmaternoCliente, JTextField selectIdProducto, JTextField selectNombreProducto,
-                                        JTextField selectPrecioProducto, JTextField selectStockProducto, JTextField precioVenta,
-                                        JTextField cantidadVenta, JTable tablaresumen, JLabel IVA, JLabel total){
+    public void limpiarCamposLuegoAgregar(JTextField buscarCliente, JTextField buscarProducto, JTextField selectIdProducto,
+            JTextField selectNombreProducto, JTextField selectPrecioProducto,
+            JTextField selectStockProducto, JTextField precioVenta,
+            JTextField cantidadVenta) {
         buscarCliente.setText("");
         buscarCliente.requestFocus();
-        DefaultTableModel modeloCliente = (DefaultTableModel) tablaCliente.getModel();
-        modeloCliente.setRowCount(0);
-        
         buscarProducto.setText("");
-        DefaultTableModel modeloProducto = (DefaultTableModel) tablaproducto.getModel();
-        modeloProducto.setRowCount(0);
-        
-        selectIdCliente.setText("");
-        selectNombreCliente.setText("");
-        selectAppaternoCliente.setText("");
-        selectApmaternoCliente.setText("");
-        
         selectIdProducto.setText("");
         selectNombreProducto.setText("");
         selectPrecioProducto.setText("");
         selectStockProducto.setText("");
-        
         precioVenta.setText("");
         precioVenta.setEnabled(false);
         cantidadVenta.setText("");
-        
+    }
+    public void limpiarCamposLuegoVenta(JTextField buscarCliente, JTable tablaCliente, JTextField buscarProducto, JTable tablaproducto,
+            JTextField selectIdCliente, JTextField selectNombreCliente, JTextField selectAppaternoCliente,
+            JTextField selectApmaternoCliente, JTextField selectIdProducto, JTextField selectNombreProducto,
+            JTextField selectPrecioProducto, JTextField selectStockProducto, JTextField precioVenta,
+            JTextField cantidadVenta, JTable tablaresumen, JLabel IVA, JLabel total) {
+        buscarCliente.setText("");
+        buscarCliente.requestFocus();
+        DefaultTableModel modeloCliente = (DefaultTableModel) tablaCliente.getModel();
+        modeloCliente.setRowCount(0);
+
+        buscarProducto.setText("");
+        DefaultTableModel modeloProducto = (DefaultTableModel) tablaproducto.getModel();
+        modeloProducto.setRowCount(0);
+
+        selectIdCliente.setText("");
+        selectNombreCliente.setText("");
+        selectAppaternoCliente.setText("");
+        selectApmaternoCliente.setText("");
+
+        selectIdProducto.setText("");
+        selectNombreProducto.setText("");
+        selectPrecioProducto.setText("");
+        selectStockProducto.setText("");
+
+        precioVenta.setText("");
+        precioVenta.setEnabled(false);
+        cantidadVenta.setText("");
+
         DefaultTableModel modeloResumenVenta = (DefaultTableModel) tablaresumen.getModel();
         modeloResumenVenta.setRowCount(0);
-        
+
         IVA.setText("---");
         total.setText("---");
     }
-    
-    public void MostrarUltimaFactura(JLabel ultimaFactura){
+
+    public void MostrarUltimaFactura(JLabel ultimaFactura) {
         Configuracion.CConexion objetoConexion = new Configuracion.CConexion();
         try {
             String consulta = "SELECT MAX(idfactura) as UltimaFactura FROM factura";
@@ -292,10 +292,10 @@ public class ControladorVenta {
                 ultimaFactura.setText(String.valueOf(rs.getInt("UltimaFactura")));
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error al buscar la ultima factura: "+e.toString());
+            JOptionPane.showMessageDialog(null, "Error al buscar la ultima factura: " + e.toString());
         } finally {
             objetoConexion.cerrarConecion();
         }
-    
-    } 
+
+    }
 }
